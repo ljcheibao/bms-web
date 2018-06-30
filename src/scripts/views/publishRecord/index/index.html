@@ -1,0 +1,31 @@
+<div class="publish-record-wrapper">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="15%">页面名称</th>
+        <th class="text-center">发布环境</th>
+        <th class="text-center">发布者</th>
+        <th class="text-center">发布时间</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody v-if="pagePublishRecordListData.total > 0">
+      <tr v-for="item in pagePublishRecordListData.list">
+        <td width="15%">{{item.pageName}}</td>
+        <td class="text-center">{{item.env == 2 ? "正式" : "测试"}}</td>
+        <td class="text-center">{{item.publisher}}</td>
+        <td class="text-center">{{item.publishTime}}</td>
+        <td class="text-center">
+          <a href="javascript:;" @click="rollbackPage(item.publishId)">切换</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="no-record" v-if="pagePublishRecordListData.total <= 0">
+    暂无记录
+  </div>
+  <pagination v-show="pagePublishRecordListData.total > 0" :pagination="pagination" @choosePaginationEvent="choosePaginationHandle"
+    @choosePrevOrNextEvent="choosePaginationHandle">
+  </pagination>
+  <Dialog :message="message" :options="options" @closeHandleEvent="closeHandle" @confirmHandleEvent="confirmHandle"></Dialog>
+</div>

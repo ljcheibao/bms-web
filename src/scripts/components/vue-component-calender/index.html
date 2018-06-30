@@ -1,0 +1,31 @@
+<div class="calender-wrapper" ref="calenderWrapper">
+  <div ref="calenderMonthWrapper" class="calender-month" >
+    <div class="month-list swiper-wrapper">
+      <div class="month-item" @click="collapseMonth">
+        <span class="month">{{monthDesc}}</span>
+      </div>
+    </div>
+  </div>
+  <div ref="calenderWeek" class="calender-week">
+    <span class="week-item">日</span>
+    <span class="week-item">一</span>
+    <span class="week-item">二</span>
+    <span class="week-item">三</span>
+    <span class="week-item">四</span>
+    <span class="week-item">五</span>
+    <span class="week-item">六</span>
+  </div>
+  <div style="overflow:hidden">
+    <div ref="calenderDayWrapper" class="calender-day J_calender"  v-swiper:daySwiper="daySwiperOption">
+      <div class="calender-slide-wrapper swiper-wrapper">
+        <div v-for="monthCalender in monthCalender.monthCalenderList" :data-month="monthCalender.currentMonth" class="day-items swiper-slide">
+          <div v-for="item in monthCalender.dayList" :ref="item.currentDay" class="item">
+            <span v-on:click="chooseDayHandle(item,monthCalender.month,monthCalender.currentMonth,$event)" :class="item.dayClass">{{item.dayDesc}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <component v-bind:is="iosSelectComponent" :iosSelectOpts="iosSelectOpts" @selectedEvent="resetCalender">
+  </component>
+</div>

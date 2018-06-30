@@ -1,0 +1,38 @@
+<div class="design-page-wrapper">
+  <div class="design-container">
+    <div v-show="masterId <= 0" class="design-no-master-container">
+      <span id="noMaster-0placeholder-plus" class="icon-module-add" @click="addModuleHandle('noMaster','0placeholder')">
+        <i class="glyphicon glyphicon-plus"></i>
+      </span>
+      <div class="module-design-wrapper" v-for="item in masterPlaceMap['noMaster']['0placeholder']">
+        <div class="module-arrow-wrapper">
+          <span class="icon-module-edit" @click="editModuleHandle('noMaster','0placeholder',item.moduleId,item.sort)">
+            <i class="glyphicon glyphicon-edit"></i>
+          </span>
+          <span class="icon-module-sort-up" @click="sortModuleHandle('noMaster','0placeholder',item.moduleId,item.sort,'up')">
+            <i class="glyphicon glyphicon-arrow-up"></i>
+          </span>
+          <span class="icon-module-sort-down" @click="sortModuleHandle('noMaster','0placeholder',item.moduleId,item.sort,'down')">
+            <i class="glyphicon glyphicon-arrow-down"></i>
+          </span>
+          <span class="icon-module-sort-remove" @click="removeModuleHandle('noMaster','0placeholder',item.moduleId,item.sort)">
+            <i class="glyphicon glyphicon glyphicon-remove"></i>
+          </span>
+        </div>
+        <div class="module-content" v-html="item.content"></div>
+      </div>
+    </div>
+    <div id="placeRef">
+
+    </div>
+  </div>
+  <!-- <module :paginationConf="paginationConf" :moduleList="moduleList" @choosePaginationEvent="choosePaginationHandle" @chooseModuleEvent="chooseModuleHandle">
+  </module>
+
+  <div :class="'json-schema-form-container row' + schemaDialogClass">
+    <span @click="closeSchemaDialog"  class="glyphicon glyphicon-chevron-right schema-dialog-close"></span>
+    <div id="json-schema-form" class="col-ms-8 json-schema-form">
+
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,18 @@
+<div class="modal-wrapper" v-show="options.visibility">
+  <div class="modal-mask">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{options.title}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" @click="closeHandle">{{options.button.cancel.text}}</button>
+          <button type="button" class="btn btn-primary" @click="confirmHandle">{{options.button.confirm.text}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

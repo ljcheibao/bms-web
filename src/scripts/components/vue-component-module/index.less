@@ -1,0 +1,109 @@
+.module-wrapper {
+  .module-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9998;
+    .module-box {
+      padding: 30px 10px 40px 10px;
+      width: 1080px;
+      height: 600px;
+      background: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -530px;
+      margin-top: -300px;
+      .close {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        right: 10px;
+      }
+      .module-content {
+        width: 1060px;
+        height: 460px;
+        overflow-y: auto;
+        .module-list {
+          padding: 0 10px 0 10px;
+          margin-bottom: 0;
+          &::after {
+            display: block;
+            content: " ";
+            font-size: 0;
+            height: 0;
+            clear: both;
+            overflow: hidden;
+          }
+          .module-item {
+            position: relative;
+            list-style-type: none;
+            width: 200px;
+            height: 220px;
+            margin-bottom: 10px;
+            float: left;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            &:nth-child(5n) {
+              margin-right: 0px
+            }
+            &:hover {
+              -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+              transition: border linear .2s, -webkit-box-shadow linear .3s;
+              -webkit-box-shadow: 0 0 18px rgba(0, 100, 255, 3);
+              box-shadow: 0 0 18px rgba(0, 100, 255, 3);
+              border-color: rgba(0, 123, 255, .75);
+            }
+            &.choose {
+              -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+              transition: border linear .2s, -webkit-box-shadow linear .3s;
+              -webkit-box-shadow: 0 0 18px rgba(0, 100, 255, 3);
+              box-shadow: 0 0 18px rgba(0, 100, 255, 3);
+              border-color: rgba(0, 123, 255, .75);
+            }
+            .desc {
+              padding: 0 5px 0 5px;
+              font-size: 12px;
+              color: #666;
+              margin-top: 5px;
+              margin-bottom: 0;
+            }
+            .info {
+              display: inline-block;
+              position: absolute;
+              right: 5px;
+              bottom: 0;
+            }
+          }
+        }
+      }
+      .btn-box {
+        width: 100px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        margin-left: -50px;
+        text-align: center;
+        .btn {
+          display: block;
+          width: 100px;
+          padding: 0;
+          height: 40px;
+          line-height: 40px;
+          font-size: 16px;
+          text-align: center;
+          color: #fff;
+          background: #007bff;
+        }
+      }
+    }
+  }
+}

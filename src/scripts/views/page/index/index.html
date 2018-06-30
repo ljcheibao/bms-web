@@ -1,0 +1,60 @@
+<div class="index-wrapper">
+  <!-- <div class="overlay" style="display: block;"></div> -->
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <div class="form-inline text-right">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-search"></i>
+          </span>
+          <input type="text" class="form-control col-ms-5" placeholder="Search">
+        </div>
+        <button class="btn btn-info">搜索</button>
+      </div>
+    </div>
+  </nav>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="15%">页面名称</th>
+        <th class="text-center">页面类型</th>
+        <th class="text-center">页面终端</th>
+        <th class="text-center">创建者</th>
+        <th class="text-center">创建时间</th>
+        <th class="text-center">发布者</th>
+        <th class="text-center">发布时间</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in pageListData.list">
+        <td width="15%">{{item.pageName}}</td>
+        <td class="text-center">{{item.type == 1 ? "频道" : "区块"}}</td>
+        <td class="text-center">
+          {{item.device == 1 ? "pc端" : "移动端"}}
+          <i :style="'color:#007bff;'" :class="(item.device==1 ? 'glyphicon glyphicon-blackboard':'glyphicon glyphicon-phone')"></i>
+        </td>
+        <td class="text-center">{{item.createAuthor}}</td>
+        <td class="text-center">{{item.createTime}}</td>
+        <td class="text-center">{{item.publisher}}</td>
+        <td class="text-center">{{item.publishTime}}</td>
+        <td class="text-center">
+          <router-link v-if="item.isDesign == 1" :to="{name:'preview',params:{pageId:item.pageId}}">预览</router-link> |
+          <span style="color:#999;" v-else>预览</span> |
+          <router-link :to="{name:'pageDesign',params:{pageId:item.pageId}}">
+            搭建
+          </router-link> |
+          <router-link :to="{name:'pageSetting',params: { pageId: item.pageId }}">
+            设置
+          </router-link> |
+          <router-link :to="{name:'publishRecord',params: { pageId: item.pageId }}">
+            发布记录
+          </router-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination :pagination="pagination" @choosePaginationEvent="choosePaginationHandle" @choosePrevOrNextEvent="choosePaginationHandle">
+  </pagination>
+</div>

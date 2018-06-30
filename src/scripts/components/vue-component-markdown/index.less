@@ -1,0 +1,32 @@
+.markdown-wrapper {
+  .markdown-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    .markdown-box {
+      padding: 30px;
+      width: 800px;
+      height: 500px;
+      background: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -400px;
+      margin-top: -250px;
+      overflow: auto;
+      .close {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        top:0;
+        right: 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="index-website-wrapper">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="15%">站点名称</th>
+        <th class="text-center">站点描述</th>
+        <th class="text-center">站点域名</th>
+        <th class="text-center">所属bu</th>
+        <th class="text-center">创建者</th>
+        <th class="text-center">创建时间</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in websiteListData.list">
+        <td width="15%">{{item.websiteName}}</td>
+        <td class="text-center">{{item.description}}</td>
+        <td class="text-center">{{item.domain}}</td>
+        <td class="text-center">
+          {{item.bu}}
+        </td>
+        <td class="text-center">{{item.createAuthor}}</td>
+        <td class="text-center">{{item.createTime}}</td>
+        <td class="text-center">
+          <a href="javascript:;" @click="enterWebsite(item.websiteId)">进入站点</a>
+          <!-- <router-link :to="{name:'pageIndex'}">进入</router-link> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

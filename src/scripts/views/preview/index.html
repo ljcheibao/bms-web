@@ -1,0 +1,11 @@
+<div class="preview-wrapper">
+  <!-- <dialog-v1 
+   :options="options" 
+   :message="message">
+
+  </dialog-v1> -->
+  <iframe v-show="pageId > 0" class="preview-frame" ref="previewFrame" 
+    :src="url" 
+    frameborder="0">
+  </iframe>
+</div>

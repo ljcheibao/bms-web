@@ -1,0 +1,14 @@
+<div class="left-menu">
+  <nav class="navbar navbar-inverse navbar-fixed-top sidebar-wrapper" role="navigation">
+    <ul class="nav sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="javascript:;">积木世界</a>
+      </li>
+      <li v-for="item in menuItems">
+        <router-link :to="item.path">
+          <i :class="item.iconClass" style="margin-right:5px;"></i>{{item.text}}
+        </router-link>
+      </li>
+    </ul>
+  </nav>
+</div>

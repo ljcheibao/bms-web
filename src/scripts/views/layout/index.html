@@ -1,0 +1,43 @@
+<div class="view-wrapper">
+  <nav class="nav-toggle two ">
+    <div style="padding-left:0px" class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="widescreen">
+            <a href="/">
+              <img src="../../../images/block-logo.png" class="logo" alt="">
+            </a>
+            <ul class="left-links main-nav">
+              <li v-for="item in leftNavMenuItems.items" class="nav-item">
+                <router-link :to="item.path">{{item.text}}</router-link>
+              </li>
+              <!-- <li class="nav-item">
+                <router-link to="/master">母版管理</router-link>
+              </li>
+              <li class="nav-item">
+                <a href="/enterprise/">发布历史</a>
+              </li> -->
+            </ul>
+            <ul class="right-links main-nav">
+              <li v-for="item in menuItems.items" class="divider-left nav-item visitor-item extend-item">
+                <a v-if="!item.path.name" href="javascript:;" @click="handle(item.type)">{{item.text}}</a>
+                <router-link v-else :to="item.path">
+                  {{item.text}}
+                </router-link>
+              </li>
+
+              <li class="divider-left nav-item visitor-item">
+                <a href="/vcs-authorize/" data-hj-masked="">Log In</a>
+              </li>
+              <li class="nav-item visitor-item">
+                <a class="" href="/signup/" data-analytics-action="signup-clicked" data-analytics-location="nav" data-optimizely="signup_button_clicked">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <Dialog :options="options" :message="message" @confirmHandleEvent="confirmHandle"></Dialog>
+  <router-view></router-view>
+</div>

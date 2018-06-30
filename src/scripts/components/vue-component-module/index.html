@@ -1,0 +1,29 @@
+<div class="module-wrapper" v-show="isShow">
+  <div class="module-mask">
+    <div class="module-box">
+      <a class="close" href="javascript:;" @click="closeHandle">x</a>
+      <div class="module-content">
+        <ul class="module-list">
+          <li v-for="item in moduleList.list"  
+            @click="chooseHandle(item.moduleId)" 
+            :class="['module-item',{'choose':item.moduleId==moduleId}]">
+            <img width="200px" height="90px" :src="item.thumb" alt="">
+            <p class="desc">名称：{{item.moduleName}}</p>
+            <p class="desc">版本：{{item.version}}</p>
+            <p class="desc">描述：{{item.description}}</p>
+            <p class="desc">修改者：{{item.updateAuthor}}</p>
+            <p class="desc">修改时间：{{item.updateTime}}</p>
+            <span class="info" v-on:click.stop="showMarkdownIntroduction(item.readme)">
+              <i class="glyphicon glyphicon-eye-open"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <pagination v-show="paginationConf.totalRecord > 0" :pagination="paginationConf" @choosePaginationEvent="choosePaginationHandle" @choosePrevOrNextEvent="choosePaginationHandle"></pagination>
+      <div class="btn-box">
+        <a href="javascript:;" class="btn" @click="chooseModuleHandle">确定</a>
+      </div>
+    </div>
+  </div>
+  <markdown v-model="markdownText" @closeMarkdownDialogEvent="closeMarkdownDialogHandle"></markdown>
+</div>

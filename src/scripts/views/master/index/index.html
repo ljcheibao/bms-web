@@ -1,0 +1,26 @@
+<div class="index-master-wrapper">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">母版名称</th>
+        <th class="text-center">母版描述</th>
+        <th class="text-center">创建者</th>
+        <th class="text-center">创建时间</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in masterListModel.list">
+        <td class="text-center">{{item.masterName}}</td>
+        <td class="text-center">{{item.description}}</td>
+        <td class="text-center">{{item.createAuthor}}</td>
+        <td class="text-center">{{item.createTime}}</td>
+        <td class="text-center">
+          <router-link :to="{name:'masterSetting',params: { masterId: item.masterId }}">
+            设置
+          </router-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

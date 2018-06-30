@@ -1,0 +1,26 @@
+<div class="modal-wrapper" v-show="options.visibility">
+  <div class="modal-mask">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{options.title}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{message}}</p>
+          <div class="text-center modal-radio-container">
+            <span class="modal-radio">
+              <input type="radio">正式环境
+            </span>
+            <span class="modal-radio">
+              <input type="radio">测试环境
+            </span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" @click="closeHandle">取消</button>
+          <button type="button" class="btn btn-primary" @click="confirmHandle">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

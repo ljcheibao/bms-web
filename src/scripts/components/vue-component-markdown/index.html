@@ -1,0 +1,10 @@
+<div class="markdown-wrapper" v-show="markdownText">
+  <div class="markdown-mask">
+    <div class="markdown-box">
+      <a class="close" href="javascript:;" @click="closeHandle">x</a>
+      <div class="markdown-content">
+        <vue-markdown :source="markdownText"></vue-markdown>
+      </div>
+    </div>
+  </div>
+</div>

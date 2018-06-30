@@ -1,0 +1,68 @@
+<div class="design-page-wrapper">
+  <nav class="design design-inverse design-fixed-top design-wrapper" role="navigation">
+    <ul class="nav design-nav">
+      <li class="sidebar-brand">
+        <a href="javascript:;">积木世界</a>
+      </li>
+      <li>
+        <a href="javascript:;" @click="savePageModuleRelation()">
+          <i class="glyphicon glyphicon-save-file" style="margin-right:5px"></i> 保存
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" @click="previewDesignPage">
+          <i class="glyphicon glyphicon-eye-open" style="margin-right:5px"></i> 预览
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" @click="publishPage()">
+          <i class="glyphicon glyphicon-cloud-upload" style="margin-right:5px"></i> 发布
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="glyphicon glyphicon-heart" style="margin-right:5px"></i> 收藏
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="glyphicon glyphicon-copy" style="margin-right:5px"></i> 复制
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" @click="gotoPublishRecord()">
+          <i class="glyphicon glyphicon-film" style="margin-right:5px"></i> 发布记录
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" @click="moduleSort()">
+          <i class="glyphicon glyphicon-sort" style="margin-right:5px"></i> 模块排序
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="design-container">
+    <iframe class="design-frame" ref="designFrame" @load="loaded" src="/design/action" scrolling="auto" frameborder="0"></iframe>
+  </div>
+  <module :paginationConf="paginationConf" :moduleList="moduleList" @choosePaginationEvent="choosePaginationHandle" @chooseModuleEvent="chooseModuleHandle">
+  </module>
+  <Dialog :message="message" :options="options" @closeHandleEvent="closeHandle" @confirmHandleEvent="confirmHandle"></Dialog>
+  <div :class="'json-schema-form-container row' + schemaDialogClass">
+    <span @click="closeSchemaDialog" class="glyphicon glyphicon-chevron-right schema-dialog-close"></span>
+    <div id="json-schema-form" class="col-ms-8 json-schema-form">
+
+    </div>
+  </div>
+  <div :class="'modules-info-container row' + moduleSortClass">
+    <span @click="closeModuleSortWindow()" class="glyphicon glyphicon-chevron-right modules-info-close"></span>
+    <div class="master-modules-container" v-for="(item,index) in moduleObjectKey">
+      <h2 class="master-place-tile">{{index + 1 >=10 ? index+1 : "0"+ (index + 1)}}-模块插槽</h2>
+      <div class="module-list">
+        <div class="module-item" v-for="(module, index) in modulesObject[item]" v-dragging="{ item: module, list: modulesObject[item], group: item }"
+          :key="module.sort">
+          {{module.moduleName}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

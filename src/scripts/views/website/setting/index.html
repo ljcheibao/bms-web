@@ -1,0 +1,70 @@
+<div class="setting-website-wrapper">
+  <div class="form-group row col-md-10">
+    <label for="pageName" class="col-sm-2 col-form-label text-right">页面名称
+      <span style="color:red">*</span>
+    </label>
+
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="pageName" placeholder="页面名称" v-model="pageModel.pageName">
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label class="col-sm-2 col-form-label text-right">页面类型
+      <span style="color:red">*</span>
+    </label>
+    <div class="col-sm-6">
+      <label class="col-form-label">{{pageModel.type == 1 ? "频道" :"区块"}}</label>
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label class="col-sm-2 col-form-label text-right">页面终端
+      <span style="color:red">*</span>
+    </label>
+    <div class="col-sm-6">
+      <label class="col-form-label">{{pageModel.device == 1 ? "桌面端" :"移动端"}}</label>
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label for="master" class="col-sm-2 col-form-label text-right">页面母版</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="master" v-model="pageModel.masterId">
+        <option value="-1">请选择母版</option>
+        <option v-for="item in masterListModel.list" :value="item.masterId">
+          {{item.masterName}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label class="col-sm-2 col-form-label text-right">页面地址
+      <span style="color:red">*</span>
+    </label>
+    <div class="col-sm-6">
+      <label class="col-form-label">{{"http://" + pageModel.domain}}{{pageModel.url}}</label>
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label for="pageTitle" class="col-sm-2 col-form-label text-right">页面标题</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="pageTitle" placeholder="页面标题" v-model="pageModel.title">
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label for="pageKeyword" class="col-sm-2 col-form-label text-right">页面keyword</label>
+    <div class="col-sm-6">
+      <textarea class="form-control" id="pageKeyword" rows="3" v-model="pageModel.keyword"></textarea>
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label for="pageDesc" class="col-sm-2 col-form-label text-right">页面描述</label>
+    <div class="col-sm-6">
+      <textarea class="form-control" id="pageDesc" rows="3" v-model="pageModel.description"></textarea>
+    </div>
+  </div>
+  <div class="form-group row col-md-10">
+    <label for="pageDesc" class="col-sm-2 col-form-label text-right"></label>
+    <div class="col-sm-6">
+      <button @click="updatePageHandle" type="button" class="btn  btn-primary col-sm-4">修改</button>
+    </div>
+  </div>
+</div>
