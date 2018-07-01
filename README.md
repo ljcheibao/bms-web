@@ -34,7 +34,7 @@ npm/cnpm install
 
 #### 修改bms-web项目某些地方
 
-- 找到文件**/src/scripts/views/design/index.html**，将html中的iframe标签的**src="/design/action"**修改为**/design.html**，否则页面搭建的模板读取的是部署到线上的模板，本地无法进行页面的搭建
+- 找到文件 **/src/scripts/views/design/index.html**，将html中的iframe标签的**src="/design/action"**修改为**/design.html**，否则页面搭建的模板读取的是部署到线上的模板，本地无法进行页面的搭建
 
 #### 开发
 
