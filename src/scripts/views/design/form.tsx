@@ -9,7 +9,7 @@ import Form from "react-jsonschema-form";
  * @class
  */
 export default class JsonForm {
-  constructor(schema: object, data?: object, onSubmit?: Function) {
+  constructor(schema: object, data?: object, onSubmit?: any) {
     ReactDOM.render((
       <Form schema={schema} formData={data} onSubmit={onSubmit}>
         <div>

@@ -8,9 +8,9 @@ import {
   Prop
 } from "../BaseView";
 import { Container } from "typedi";
-import VueDND from 'awe-dnd';
+//import VueDND from 'awe-dnd';
 //@ts-ignore
-Vue.use(VueDND)
+//Vue.use(VueDND)
 
 import module from "../../components/vue-component-module/index";
 

@@ -51,7 +51,8 @@
       <div class="input-group-prepend">
         <div class="input-group-text">{{"http://" + websiteModel.domain}}</div>
       </div>
-      <input type="text" class="form-control" id="pageUrl" placeholder="页面地址" v-model="pageModel.url">
+      <input type="text" class="form-control" id="pageUrl" placeholder="页面地址必须以斜杠【/】开头" v-model="pageModel.url">
+      <span style="color: red" v-show="pageModel.url && pageModel.url.substring(0,1) != '/'">页面地址必须以斜杠【/】开头</span>
     </div>
   </div>
   <div class="form-group row col-md-10">
@@ -75,7 +76,7 @@
   <div class="form-group row col-md-10">
     <label for="pageDesc" class="col-sm-2 col-form-label text-right"></label>
     <div class="col-sm-6">
-      <button @click="createPageHandle" type="button" class="btn  btn-primary col-sm-4">保存</button>
+      <button :disabled="!pageModel.url || pageModel.url.substring(0,1) != '/'" @click="createPageHandle" type="button" class="btn  btn-primary col-sm-4">保存</button>
     </div>
   </div>
 </div>

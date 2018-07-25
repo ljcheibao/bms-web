@@ -118,6 +118,7 @@ export default class LayOut extends BaseView {
 
     if (to.name != "websiteIndex") {
       if (!Utils.getCookie("WEBSITEID")) this.$router.push(`/`);
+      else Vue.prototype.WEBSITEID = Utils.getCookie("WEBSITEID");
       this.$set(this.leftNavMenuItems, "items", [
         {
           text: "页面管理",
@@ -200,6 +201,7 @@ export default class LayOut extends BaseView {
     }
     if (this.$route.name != "websiteIndex") {
       if (!Utils.getCookie("WEBSITEID")) this.$router.push(`/`);
+      else Vue.prototype.WEBSITEID = Utils.getCookie("WEBSITEID");
       this.$set(this.leftNavMenuItems, "items", [
         {
           text: "页面管理",

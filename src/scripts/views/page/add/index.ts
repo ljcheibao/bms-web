@@ -14,6 +14,7 @@ import { MasterModule } from "../../../models/MasterModel";
 import { IMasterService } from "../../../interface/IMasterService";
 import { WebsiteModule } from "../../../models/WebsiteModel";
 import { IWebsiteService } from "../../../interface/IWebsiteService";
+import { Utils } from "../../../utils/Utils";
 
 /**
  * 新增页面
@@ -45,7 +46,7 @@ export default class PageAdd extends BaseView {
   mounted() {
     let _this = this;
     //@ts-ignore
-    this.websiteId = Number(this.WEBSITEID);
+    this.websiteId = Number(this.WEBSITEID || Utils.getCookie("WEBSITEID"));
     (async function () {
       let result: any = await Container.get<IMasterService>("masterService").getMasterList();
       if (!result.errorCode) {

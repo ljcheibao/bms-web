@@ -26,11 +26,11 @@
     "url": "https://github.com/ljcheibao/bms-web.git"
   },
   "devDependencies": {
-    "freedom-middleware-webpack2": "^1.0.6",
     "@types/axios": "^0.14.0",
     "@types/node": "^8.5.1",
     "@types/react": "^16.1.0",
     "@types/react-dom": "^16.0.4",
+    "@types/react-jsonschema-form": "^1.0.7",
     "@types/vue": "^2.0.0",
     "animate.css": "^3.5.2",
     "antd-jsonschema-form": "^1.0.3",
@@ -44,6 +44,7 @@
     "compression-webpack-plugin": "^1.1.3",
     "copy-webpack-plugin": "^4.3.1",
     "express": "^4.16.2",
+    "freedom-middleware-webpack2": "^1.0.6",
     "hammerjs": "^2.0.8",
     "heibao-utils": "^0.0.6",
     "http-proxy-middleware": "^0.17.4",
