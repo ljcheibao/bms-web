@@ -14,7 +14,36 @@
 
 #### 母版管理(母版设置尚未开发)
 
-母版管理这个是针对开发者而设置的，所谓母版，是某几个或者所有页面通用部分的管理。**注意：母版中某块内容占位符的容器必须要以place标明，且必须唯一，比如:<div place="first"></div>**
+母版管理这个是针对开发者而设置的，所谓母版，是某几个或者所有页面通用部分的管理。**注意：母版中某块内容占位符的容器必须要以place标明，且必须唯一，比如:**
+```html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+ <meta charset="UTF-8">
+
+ <meta name="keyword" content="积木世界，积木">
+
+ <meta name="description" content="积木世界，积木">
+
+ <title>积木世界</title>
+<link rel="stylesheet" href="http://www.51qututu.com/libs/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+
+ <div class="main" place="first">
+
+ </div>
+
+ <div class="right" place="second">
+
+ </div>
+</body>
+</html>
+```
 
 ![image](https://github.com/ljcheibao/bms-web/blob/master/docs/images/master.png)
 
