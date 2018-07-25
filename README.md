@@ -57,6 +57,6 @@ npm run serve
 - bms-web起来以后，本地看到的页面，数据即为线上的数据，因为api接口是代理到线上的
 - 项目并未开发完成，各页面相关一些表单数据必填项并未做简单校验，所以体验的时候，尽可能的把必填项写全
 - 线上体验网站[积木系统](http://www.51qututu.com)
-- 积木系统各页面简介，请[点击查看](https://github.com/ljcheibao/bms-web/blob/master/docs/introduce.md)
+- **积木系统各页面简介，请**[点击查看](https://github.com/ljcheibao/bms-web/blob/master/docs/introduce.md)
 - 欢迎大家一起探讨跟指点，QQ:415026798
 
