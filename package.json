@@ -69,7 +69,8 @@
     "vue-property-decorator": "^6.0.0",
     "vue-quill-editor": "^3.0.5",
     "vue-router": "^3.0.1",
-    "vue-touch": "^2.0.0-beta.4"
+    "vue-touch": "^2.0.0-beta.4",
+    "vue2-editor": "^2.5.0"
   },
   "proxy": [
     "/api",

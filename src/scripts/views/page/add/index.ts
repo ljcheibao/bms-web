@@ -15,6 +15,7 @@ import { IMasterService } from "../../../interface/IMasterService";
 import { WebsiteModule } from "../../../models/WebsiteModel";
 import { IWebsiteService } from "../../../interface/IWebsiteService";
 import { Utils } from "../../../utils/Utils";
+import Dialog from "../../../components/vue-component-dialog/index";
 
 /**
  * 新增页面
@@ -22,9 +23,31 @@ import { Utils } from "../../../utils/Utils";
  * @extends BaseView
  */
 @Component({
-  template: require("./index.html")
+  template: require("./index.html"),
+  components: {
+    Dialog
+  }
 })
 export default class PageAdd extends BaseView {
+
+  /**
+   * 模态弹框的信息
+   */
+  message: string = "";
+
+  //弹框控制对象
+  dialogOpts: any = {
+    visibility: false,
+    button: {
+      confirm: {
+        text: "确定"
+      },
+      cancel: {
+        text: "取消"
+      }
+    }
+  };
+
   /**
    * 新增页面需要的实体对象
    */
@@ -35,15 +58,15 @@ export default class PageAdd extends BaseView {
    */
   masterListModel: MasterModule.MasterListModel = new MasterModule.MasterListModel();
 
-  //@ts-ignore
   websiteId: number = 0;
 
   websiteModel: WebsiteModule.WebsiteModel = new WebsiteModule.WebsiteModel();
 
   /**
-   * 获取数据渲染模板
+   * 渲染模板
+   * @return {void} 无返回值
    */
-  mounted() {
+  mounted(): void {
     let _this = this;
     //@ts-ignore
     this.websiteId = Number(this.WEBSITEID || Utils.getCookie("WEBSITEID"));
@@ -55,6 +78,10 @@ export default class PageAdd extends BaseView {
         let websiteResult: any = await Container.get<IWebsiteService>("websiteService").getWebSiteDetailById(_this.websiteId);
         if (!websiteResult.errorCode) {
           _this.websiteModel = <WebsiteModule.WebsiteModel>websiteResult;
+        } else {
+          //弹框提示
+          _this.dialogOpts.visibility = true;
+          _this.message = result.message;
         }
       }
     })();
@@ -62,9 +89,9 @@ export default class PageAdd extends BaseView {
 
   /**
    * 创建页面
-   * 
+   * @return {void} 无返回值
    */
-  async createPageHandle() {
+  async createPageHandle(): Promise<void> {
 
     /**
      * 保存页面数据
@@ -74,6 +101,11 @@ export default class PageAdd extends BaseView {
     let result: any = await Container.get<IPageService>("pageService").createPage(this.pageModel);
     if (result && result.pageId > 0) {
       this.$router.push(`/page`);
+    } else {
+      //提示信息
+      //弹框提示
+      this.dialogOpts.visibility = true;
+      this.message = result.message;
     }
   }
 }

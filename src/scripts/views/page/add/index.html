@@ -79,4 +79,5 @@
       <button :disabled="!pageModel.url || pageModel.url.substring(0,1) != '/'" @click="createPageHandle" type="button" class="btn  btn-primary col-sm-4">保存</button>
     </div>
   </div>
+  <Dialog :message="message" :options="dialogOpts"></Dialog>
 </div>

@@ -31,7 +31,7 @@ export default class WebsiteLayout extends BaseView {
    * 渲染模板
    */
   mounted() {
-    this.menuItems = [
+    /* this.menuItems = [
       {
         iconClass: "glyphicon glyphicon-plus",
         text: "新增站点",
@@ -39,6 +39,6 @@ export default class WebsiteLayout extends BaseView {
           name: "websiteAdd"
         }
       }
-    ];
+    ]; */
   }
 }

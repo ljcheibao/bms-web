@@ -51,17 +51,7 @@ const router = new VueRouter({
       children: [
         { path: "", name: "masterIndex", component: MasterIndex },
         { path: "add", name: "masterAdd", component: MasterAdd },
-        //{ path: ":masterId", name: "masterSetting", component: MasterSetting },
-        {
-          path: ":masterId?",redirect: to => {
-            const { hash, params, query } = to;
-            if (query.from == "2") {
-              return '/page'
-            } else if (query.from == "1") {
-              return { name: "masterSetting" };
-            }
-          },name: "masterSetting", component: MasterSetting
-        }
+        { path: ":masterId", name: "masterSetting", component: MasterSetting }
       ]
     },
     {

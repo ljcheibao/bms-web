@@ -23,13 +23,7 @@ export default class LeftMenu extends Vue {
    * 菜单选项
    */
   @Prop()
-  menuItems: Array<any> = [
-    {
-      iconClass: "",
-      text: "",
-      path: {}
-    }
-  ];
+  menuItems: Array<any> = [];
   /**
    * 监听menuItems菜单的变更
    * @param newVal 新的值

@@ -10,24 +10,38 @@ import {
 import { Container } from "typedi";
 import { MasterModule } from "../../../models/MasterModel";
 import { IMasterService } from "../../../interface/IMasterService";
-
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
-
-import quillEditor from 'vue-quill-editor';
-//@ts-ignore
-Vue.use(quillEditor);
+import Dialog from "../../../components/vue-component-dialog/index";
 
 /**
  * 母版管理模块骨架
  * @class
- * @extends BaseView
+ * @extends {BaseView}
  */
 @Component({
-  template: require("./index.html")
+  template: require("./index.html"),
+  components: {
+    Dialog
+  }
 })
 export default class MasterSetting extends BaseView {
+
+  /**
+   * 模态弹框的信息
+   */
+  message: string = "";
+
+  //弹框控制对象
+  dialogOpts: any = {
+    visibility: false,
+    button: {
+      confirm: {
+        text: "确定"
+      },
+      cancel: {
+        text: "取消"
+      }
+    }
+  };
 
   /**
    * 母版详情信息实体对象
@@ -36,8 +50,9 @@ export default class MasterSetting extends BaseView {
 
   /**
    * 渲染模板
+   * @return {void} 无返回值
    */
-  mounted() {
+  mounted(): void {
     let _this = this;
     (async function () {
       _this.masterModel = await Container.get<IMasterService>("masterService").getMasterDetailById(Number(_this.$route.params.masterId));
@@ -45,21 +60,18 @@ export default class MasterSetting extends BaseView {
   }
 
   /**
-   * 
-   * @param {string} data 文本编辑器的内容
-   */
-  changeMasterContent(data) {
-    this.masterModel.content = data.text;
-  }
-
-  /**
    * 更新母版
+   * @return {void} 无返回值
    */
   async updateMasterHandle(): Promise<void> {
     this.masterModel.masterId = Number(this.$route.params.masterId);
     let result: any = await Container.get<IMasterService>("masterService").updateMaster(this.masterModel);
     if (result && result.masterId > 0) {
       this.$router.push("/master");
+    } else {
+      //弹框提示
+      this.dialogOpts.visibility = true;
+      this.message = result.message;
     }
   }
 }
