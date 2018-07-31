@@ -1,0 +1,6 @@
+ *.js linguist-language=typescript
+ *.css linguist-language=typescript
+ *.html linguist-language=typescript
+ *.less linguist-language=typescript
+ *.ts linguist-language=typescript
+ *.tsx linguist-language=typescript
